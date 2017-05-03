@@ -1,9 +1,12 @@
 doctype html
 html
   head
+    meta(charset='utf-8')
+    meta(name='viewport',content="width=device-width",initial-scale=1)
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel="stylesheet", href='/stylesheets/bootstrap.min.css')
-	script(src="a.js")
+    script(src="/javascripts/jquery.min.js")
+    script(src="/javascripts/bootstrap.min.js")
   body
+    include ./includes/header
     block content

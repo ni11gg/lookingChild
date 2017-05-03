@@ -4,11 +4,22 @@ var favicon = require('serve-favicon');
 var logger = require('morgan'); //日志模块
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+//mongoose connect
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/lookforchild');
+mongoose.connection.on('connected', function(){
+  console.log('Connection success!');
+})
+mongoose.connection.on("error", function(error){
+  console.log('connection error!'+ error);
+})
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
